@@ -20,5 +20,13 @@ namespace NShield.Tests
             string result = Shield.AgainstEmptyString(" ");
             Assert.AreEqual(expected, result);
         }
+
+        [TestCase]
+        public void Test3()
+        {
+            var expected = "\n\n\r";
+            string result = Shield.AgainstEmptyString("\n\n\r");
+            Assert.AreEqual(expected, result);
+        }
     }
 }
