@@ -17,7 +17,7 @@ namespace NShield.Tests
         }
 
         [Test]
-        public void Excecao()
+        public void AgainstEmptyString()
         {
             TestDelegate t = () => Shield.AgainstEmptyString(string.Empty);
             Assert.Throws<ArgumentException>(t);
