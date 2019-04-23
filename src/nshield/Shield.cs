@@ -4,7 +4,7 @@ namespace carlosschults.NShield
 {
     public static class Shield
     {
-        public static string AgainstEmptyString(string value)
+        public static string FromEmptyString(string value)
         {
             if (value == string.Empty)
                 throw new ArgumentException("The value is an empty string.");
@@ -12,7 +12,7 @@ namespace carlosschults.NShield
             return value;
         }
 
-        public static string AgainstWhiteSpaceString(string value)
+        public static string FromWhiteSpaceString(string value)
         {
             if (value?.Trim() == string.Empty)
                 throw new ArgumentException("The value is an empty or white-space string.");
@@ -20,12 +20,12 @@ namespace carlosschults.NShield
             return value;
         }
 
-        public static string AgainstInvalidString(string value)
+        public static string FromInvalidString(string value)
         {
             if (value == null)
                 throw new ArgumentNullException();
 
-            return AgainstWhiteSpaceString(value);
+            return FromWhiteSpaceString(value);
         }
     }
 }

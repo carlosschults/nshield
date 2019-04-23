@@ -10,17 +10,17 @@ namespace NShield.Tests
         [TestCase("doesn't look like an empty string!")]
         [TestCase(" ")]
         [TestCase("\n\n\r")]
-        public void AgainstEmptyString_WithNonEmptyString_ShouldReturnTheStringItself(string value)
+        public void FromEmptyString_WithNonEmptyString_ShouldReturnTheStringItself(string value)
         {
             string expected = value;
-            string result = Shield.AgainstEmptyString(value);
+            string result = Shield.FromEmptyString(value);
             Assert.AreEqual(expected, result);
         }
 
         [Test]
-        public void AgainstEmptyString()
+        public void FromEmptyString()
         {
-            TestDelegate t = () => Shield.AgainstEmptyString(string.Empty);
+            TestDelegate t = () => Shield.FromEmptyString(string.Empty);
             Assert.Throws<ArgumentException>(t);
         }
 
@@ -29,10 +29,10 @@ namespace NShield.Tests
         [TestCase("x")]
         [TestCase("even more test")]
         [TestCase("old McDonald had a farm...and it exploded!")]
-        public void AgainstWhiteSpaceString_WithNonWhiteSpaceString_ReturnsTheStringItself(string value)
+        public void FromWhiteSpaceString_WithNonWhiteSpaceString_ReturnsTheStringItself(string value)
         {
             string expected = value;
-            string result = Shield.AgainstWhiteSpaceString(value);
+            string result = Shield.FromWhiteSpaceString(value);
             Assert.AreEqual(expected, result);
         }
 
@@ -40,9 +40,9 @@ namespace NShield.Tests
         [TestCase(" ")]
         [TestCase("    ")]
         [TestCase("\n\n\n\r\r")]
-        public void AgainstWhiteSpaceString(string value)
+        public void FromWhiteSpaceString(string value)
         {
-            TestDelegate t = () => Shield.AgainstWhiteSpaceString(value);
+            TestDelegate t = () => Shield.FromWhiteSpaceString(value);
             Assert.Throws<ArgumentException>(t);
         }
 
@@ -50,28 +50,28 @@ namespace NShield.Tests
         [TestCase("x")]
         [TestCase("even more test")]
         [TestCase("old McDonald had a farm...and it exploded!")]
-        public void AgainstInvalidString_WithValidStrings_ShouldReturnTheStringItself(string value)
+        public void FromInvalidString_WithValidStrings_ShouldReturnTheStringItself(string value)
         {
             string expected = value;
-            string result = Shield.AgainstInvalidString(value);
+            string result = Shield.FromInvalidString(value);
             Assert.AreEqual(expected, result);
         }
 
         [Test]
-        public void AgainstInvalidString_PassingNullReference_Throws()
+        public void FromInvalidString_PassingNullReference_Throws()
         {
             Assert.Throws<ArgumentNullException>(
-                () => Shield.AgainstInvalidString(null));
+                () => Shield.FromInvalidString(null));
         }
 
         [TestCase("")]
         [TestCase(" ")]
         [TestCase("    ")]
         [TestCase("\n\n\n\r\r")]
-        public void AgainstInvalidString(string value)
+        public void FromInvalidString(string value)
         {
             Assert.Throws<ArgumentException>(
-                () => Shield.AgainstInvalidString(value));
+                () => Shield.FromInvalidString(value));
         }
     }
 }
