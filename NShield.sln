@@ -6,6 +6,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B4CB5ECC-CB9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nshield", "src\Nshield\Nshield.csproj", "{56FE64F3-4F34-4755-92CD-D8DDB9AA3A83}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DC7C7211-CDA3-457E-9584-A08DDDC8C848}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NShield.Tests", "tests\NShield.Tests\NShield.Tests.csproj", "{BAE476EF-A327-40DB-82BB-101AA0C90CA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,11 +32,24 @@ Global
 		{56FE64F3-4F34-4755-92CD-D8DDB9AA3A83}.Release|x64.Build.0 = Release|Any CPU
 		{56FE64F3-4F34-4755-92CD-D8DDB9AA3A83}.Release|x86.ActiveCfg = Release|Any CPU
 		{56FE64F3-4F34-4755-92CD-D8DDB9AA3A83}.Release|x86.Build.0 = Release|Any CPU
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6}.Debug|x64.ActiveCfg = Debug|x64
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6}.Debug|x64.Build.0 = Debug|x64
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6}.Debug|x86.ActiveCfg = Debug|x86
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6}.Debug|x86.Build.0 = Debug|x86
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6}.Release|x64.ActiveCfg = Release|x64
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6}.Release|x64.Build.0 = Release|x64
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6}.Release|x86.ActiveCfg = Release|x86
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{56FE64F3-4F34-4755-92CD-D8DDB9AA3A83} = {B4CB5ECC-CB99-434C-AA8E-D2B0C9072C0D}
+		{BAE476EF-A327-40DB-82BB-101AA0C90CA6} = {DC7C7211-CDA3-457E-9584-A08DDDC8C848}
 	EndGlobalSection
 EndGlobal
