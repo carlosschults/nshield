@@ -12,5 +12,13 @@ namespace NShield.Tests
             string result = Shield.AgainstEmptyString("doesn't look like an empty string!");
             Assert.AreEqual(expected, result);
         }
+
+        [TestCase]
+        public void Test2()
+        {
+            var expected = " ";
+            string result = Shield.AgainstEmptyString(" ");
+            Assert.AreEqual(expected, result);
+        }
     }
 }
