@@ -33,5 +33,15 @@ namespace NShield.Tests
             string result = Shield.AgainstWhiteSpaceString(value);
             Assert.AreEqual(expected, result);
         }
+
+        [TestCase("")]
+        [TestCase(" ")]
+        [TestCase("    ")]
+        [TestCase("\n\n\n\r\r")]
+        public void AgainstWhiteSpaceString(string value)
+        {
+            TestDelegate t = () => Shield.AgainstWhiteSpaceString(value);
+            Assert.Throws<ArgumentException>(t);
+        }
     }
 }

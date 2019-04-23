@@ -14,6 +14,9 @@ namespace carlosschults.NShield
 
         public static string AgainstWhiteSpaceString(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+                throw new ArgumentException("The value is an empty or white-space string.");
+
             return value;
         }
     }
