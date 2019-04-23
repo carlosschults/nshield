@@ -43,5 +43,33 @@ namespace NShield.Tests
             TestDelegate t = () => Shield.AgainstWhiteSpaceString(value);
             Assert.Throws<ArgumentException>(t);
         }
+
+        [TestCase("some text")]
+        [TestCase("x")]
+        [TestCase("even more test")]
+        [TestCase("old McDonald had a farm...and it exploded!")]
+        public void AgainstInvalidString_WithValidStrings_ShouldReturnTheStringItself(string value)
+        {
+            string expected = value;
+            string result = Shield.AgainstInvalidString(value);
+            Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void AgainstInvalidString_PassingNullReference_Throws()
+        {
+            Assert.Throws<ArgumentNullException>(
+                () => Shield.AgainstInvalidString(null));
+        }
+
+        [TestCase("")]
+        [TestCase(" ")]
+        [TestCase("    ")]
+        [TestCase("\n\n\n\r\r")]
+        public void AgainstInvalidString(string value)
+        {
+            Assert.Throws<ArgumentException>(
+                () => Shield.AgainstInvalidString(value));
+        }
     }
 }

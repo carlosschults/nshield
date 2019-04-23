@@ -19,5 +19,13 @@ namespace carlosschults.NShield
 
             return value;
         }
+
+        public static string AgainstInvalidString(string value)
+        {
+            if (value == null)
+                throw new ArgumentNullException();
+
+            return AgainstWhiteSpaceString(value);
+        }
     }
 }
