@@ -22,5 +22,16 @@ namespace NShield.Tests
             TestDelegate t = () => Shield.AgainstEmptyString(string.Empty);
             Assert.Throws<ArgumentException>(t);
         }
+
+        [TestCase("some text")]
+        [TestCase("x")]
+        [TestCase("even more test")]
+        [TestCase("old McDonald had a farm...and it exploded!")]
+        public void AgainstWhiteSpaceString_WithNonWhiteSpaceString_ReturnsTheStringItself(string value)
+        {
+            string expected = value;
+            string result = Shield.AgainstWhiteSpaceString(value);
+            Assert.AreEqual(expected, result);
+        }
     }
 }

@@ -11,5 +11,10 @@ namespace carlosschults.NShield
 
             return value;
         }
+
+        public static string AgainstWhiteSpaceString(string value)
+        {
+            return value;
+        }
     }
 }
