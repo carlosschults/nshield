@@ -6,6 +6,7 @@ namespace NShield.Tests
 {
     public class Tests
     {
+        [TestCase(null)]
         [TestCase("doesn't look like an empty string!")]
         [TestCase(" ")]
         [TestCase("\n\n\r")]
@@ -23,6 +24,7 @@ namespace NShield.Tests
             Assert.Throws<ArgumentException>(t);
         }
 
+        [TestCase(null)]
         [TestCase("some text")]
         [TestCase("x")]
         [TestCase("even more test")]

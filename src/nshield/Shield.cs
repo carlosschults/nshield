@@ -6,7 +6,7 @@ namespace carlosschults.NShield
     {
         public static string AgainstEmptyString(string value)
         {
-            if (string.IsNullOrEmpty(value))
+            if (value == string.Empty)
                 throw new ArgumentException("The value is an empty string.");
 
             return value;
@@ -14,7 +14,7 @@ namespace carlosschults.NShield
 
         public static string AgainstWhiteSpaceString(string value)
         {
-            if (string.IsNullOrWhiteSpace(value))
+            if (value?.Trim() == string.Empty)
                 throw new ArgumentException("The value is an empty or white-space string.");
 
             return value;
