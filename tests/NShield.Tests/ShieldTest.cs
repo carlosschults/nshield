@@ -1,5 +1,6 @@
 using carlosschults.NShield;
 using NUnit.Framework;
+using System;
 
 namespace NShield.Tests
 {
@@ -27,6 +28,13 @@ namespace NShield.Tests
             var expected = "\n\n\r";
             string result = Shield.AgainstEmptyString("\n\n\r");
             Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void Excecao()
+        {
+            TestDelegate t = () => Shield.AgainstEmptyString(string.Empty);
+            Assert.Throws<ArgumentException>(t);
         }
     }
 }

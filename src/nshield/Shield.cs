@@ -6,6 +6,9 @@ namespace carlosschults.NShield
     {
         public static string AgainstEmptyString(string value)
         {
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentException("The value is an empty string.");
+
             return value;
         }
     }
