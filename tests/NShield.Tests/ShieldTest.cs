@@ -73,5 +73,24 @@ namespace NShield.Tests
             Assert.Throws<ArgumentException>(
                 () => Shield.FromInvalidString(value));
         }
+
+        [TestCase("")]
+        [TestCase(" ")]
+        [TestCase("  ")]
+        [TestCase("\n\n\n\n")]
+        [TestCase("non-null string")]
+        public void FromNull_PassingNonNullStrings_ReturnsTheObjectsThemselves(string value)
+        {
+            string expected = value;
+            string result = Shield.FromNull(value);
+            Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void FromNull()
+        {
+            string value = null;
+            Assert.Throws<ArgumentNullException>(() => Shield.FromNull(value));
+        }
     }
 }
