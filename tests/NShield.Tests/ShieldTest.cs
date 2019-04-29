@@ -92,5 +92,18 @@ namespace NShield.Tests
             string value = null;
             Assert.Throws<ArgumentNullException>(() => Shield.FromNull(value));
         }
+
+        [Test]
+        public void FromNull_WithNamedParameter()
+        {
+            string value = null;
+            TestDelegate action = () => Shield.FromNull(value, paramName: "someVar");
+
+            Assert.That(action,
+                Throws.Exception
+                  .TypeOf<ArgumentNullException>()
+                  .With.Property("ParamName")
+                  .EqualTo("someVar"));
+        }
     }
 }

@@ -28,11 +28,11 @@ namespace carlosschults.NShield
             return FromWhiteSpaceString(value);
         }
 
-        public static T FromNull<T>(T value)
+        public static T FromNull<T>(T value, string paramName = null)
             where T:class
         {
             if (value == null)
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(paramName);
 
             return value;
         }
