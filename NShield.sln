@@ -4,7 +4,7 @@ VisualStudioVersion = 15.0.26510.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B4CB5ECC-CB99-434C-AA8E-D2B0C9072C0D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nshield", "src\Nshield\Nshield.csproj", "{56FE64F3-4F34-4755-92CD-D8DDB9AA3A83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nshield", "src\Nshield\nshield.csproj", "{56FE64F3-4F34-4755-92CD-D8DDB9AA3A83}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DC7C7211-CDA3-457E-9584-A08DDDC8C848}"
 EndProject
