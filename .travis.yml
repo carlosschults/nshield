@@ -1,6 +1,2 @@
 language: csharp
-mono: none
-dotnet: 2.2.203
-
-script:
-  - build/travis.sh
+solution: ../src/NShield.sln
