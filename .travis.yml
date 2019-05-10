@@ -1,2 +1,3 @@
 language: csharp
+mono: none
 solution: src/NShield.sln
