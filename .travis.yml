@@ -1,4 +1,4 @@
 language: csharp
 mono: none
 solution: ./src/NShield.sln
-script: ./buid/travis.sh
+script: ./build/travis.sh
