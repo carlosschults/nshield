@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Nshield\Nshield.csproj" />
+    <ProjectReference Include="..\..\src\nshield\nshield.csproj" />
   </ItemGroup>
 
 </Project>
