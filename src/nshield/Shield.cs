@@ -122,5 +122,23 @@ namespace carlosschults.NShield
                 "The sequence must not be empty!",
                 paramName);
         }
+
+        /// <summary>
+        /// Checks whether the specified sequence is empty or <c>null</c>,
+        /// throwing <see cref="ArgumentException"/> or <see cref="ArgumentNullException"/>,
+        /// respectively. Otherwise, it returns the sequence itself.
+        /// </summary>
+        /// <param name="value">The sequence to be checked.</param>
+        /// <param name="parameterName">The name of the parameter to be used when throwing.</param>
+        /// <returns>
+        /// The <see cref="IEnumerable{T}"/> specified, if it's not empty nor null.
+        /// </returns>
+        public static IEnumerable<T> FromInvalidSequence<T>(
+            IEnumerable<T> value,
+            string parameterName = null)
+        {
+            FromEmptySequence(FromNull(value, parameterName));
+            return value;
+        }
     }
 }

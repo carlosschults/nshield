@@ -255,5 +255,53 @@ namespace NShield.Tests
                 () => Shield.FromEmptySequence(Enumerable.Empty<string>(), "names");
             Assert.Throws<ArgumentException>(t);
         }
+
+        [Test]
+        public void FromInvalidSequence_PassingNonInvalidSequence_ReturnsTheSequenceItself()
+        {
+            IEnumerable<DateTime> expected = Enumerable.Range(1, 30)
+                .Select(x => new DateTime(2019, 5, x));
+
+            var result = Shield.FromInvalidSequence(expected);
+            Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void FromInvalidSequence_PassingNonInvalidSequenceAndParameterName_ReturnsTheSequenceItself()
+        {
+            IEnumerable<char> expected = "asdfg";
+            var result = Shield.FromInvalidSequence(expected, "letters");
+            Assert.AreEqual(expected, result);
+        }
+
+        [Test]
+        public void FromInvalidSequence_PassingNull_Throws()
+        {
+            TestDelegate t = () => Shield.FromInvalidSequence<int>(null);
+            Assert.Throws<ArgumentNullException>(t);
+        }
+
+        [Test]
+        public void FromInvalidSequence_PassingNullAndParameterName_Throws()
+        {
+            TestDelegate t = () => Shield.FromInvalidSequence<int>(null, "ages");
+            Assert.Throws<ArgumentNullException>(t);
+        }
+
+        [Test]
+        public void FromInvalidSequence_PassingEmptySequence_Throws()
+        {
+            TestDelegate t =
+                () => Shield.FromInvalidSequence(Enumerable.Empty<int>());
+            Assert.Throws<ArgumentException>(t);
+        }
+
+        [Test]
+        public void FromInvalidSequence_PassingEmptySequenceAndParameterName_Throws()
+        {
+            TestDelegate t =
+                () => Shield.FromInvalidSequence(Enumerable.Empty<int>(), "ages");
+            Assert.Throws<ArgumentException>(t);
+        }
     }
 }
