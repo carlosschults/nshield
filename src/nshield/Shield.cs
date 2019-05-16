@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace carlosschults.NShield
 {
@@ -94,6 +96,31 @@ namespace carlosschults.NShield
                 throw new ArgumentNullException(paramName);
 
             return value;
+        }
+
+        /// <summary>
+        /// Checks whether the specified sequence is empty.
+        /// If it's empty throws <see cref="ArgumentException"/>.
+        /// Otherwise, it returns the sequence itself.
+        /// </summary>
+        /// <param name="value">The sequence to be checked.</param>
+        /// <param name="paramName">The name of the parameter to be used when throwing.</param>
+        /// <returns>
+        /// The <see cref="IEnumerable{T}"/> specified, if it's not empty.
+        /// </returns>
+        /// <remarks>
+        /// For this method, null is valid input and it'll be returned, just as a valid sequence.
+        /// </remarks>
+        public static IEnumerable<T> FromEmptySequence<T>(
+            IEnumerable<T> value,
+            string paramName = null)
+        {
+            if (value == null || value.Any())
+                return value;
+
+            throw new ArgumentException(
+                "The sequence must not be empty!",
+                paramName);
         }
     }
 }

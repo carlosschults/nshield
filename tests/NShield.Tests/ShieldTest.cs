@@ -1,6 +1,8 @@
 using carlosschults.NShield;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NShield.Tests
 {
@@ -204,6 +206,54 @@ namespace NShield.Tests
                   .TypeOf<ArgumentNullException>()
                   .With.Property("ParamName")
                   .EqualTo("someVar"));
+        }
+
+        [Test]
+        public void FromEmptySequence_PassingNonEmptySequence_ReturnsTheSequenceItself()
+        {
+            IEnumerable<int> expected = new[] { 1, 2, 3, 4, 5 };
+            var result = Shield.FromEmptySequence(expected);
+            Assert.True(expected.SequenceEqual(result));
+        }
+
+        [Test]
+        public void FromEmptySequence_PassingNonEmptySequenceAndParameterName_ReturnsTheSequenceItself()
+        {
+            IEnumerable<int> expected = new[] { 1, 2, 3, 4, 5 };
+            var result = Shield.FromEmptySequence(expected, "numbers");
+            Assert.True(expected.SequenceEqual(result));
+        }
+
+        [Test]
+        public void FromEmptySequence_PassingNull_ReturnsNull()
+        {
+            IEnumerable<int> expected = null;
+            var result = Shield.FromEmptySequence(expected);
+            Assert.Null(result);
+        }
+
+        [Test]
+        public void FromEmptySequence_PassingNullAndParameterName_ReturnsNull()
+        {
+            IEnumerable<int> expected = null;
+            var result = Shield.FromEmptySequence(expected, "numbers");
+            Assert.Null(result);
+        }
+
+        [Test]
+        public void FromEmptySequence()
+        {
+            TestDelegate t =
+                () => Shield.FromEmptySequence(Enumerable.Empty<string>());
+            Assert.Throws<ArgumentException>(t);
+        }
+
+        [Test]
+        public void FromEmptySequence_WithParameterName()
+        {
+            TestDelegate t =
+                () => Shield.FromEmptySequence(Enumerable.Empty<string>(), "names");
+            Assert.Throws<ArgumentException>(t);
         }
     }
 }
