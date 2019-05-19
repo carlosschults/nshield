@@ -1,4 +1,4 @@
-![Alt text](shield.png?raw=true "Shield by ProSymbols from the Noun Project")
+![Alt text](assets/shield.png?raw=true "Shield by ProSymbols from the Noun Project")
 
 # NShield [![Build Status](https://travis-ci.org/carlosschults/nshield.svg?branch=master)](https://travis-ci.org/carlosschults/nshield) [![Build status](https://ci.appveyor.com/api/projects/status/np7v1jjq2jicr85e/branch/master?svg=true)](https://ci.appveyor.com/project/carlosschults/nshield/branch/master)
 
