@@ -303,5 +303,147 @@ namespace NShield.Tests
                 () => Shield.FromInvalidSequence(Enumerable.Empty<int>(), "ages");
             Assert.Throws<ArgumentException>(t);
         }
+
+        [TestCase(3)]
+        [TestCase(30)]
+        [TestCase(300)]
+        [TestCase(0)]
+        public void FromNegativeNumbers_PassingNonNegativeInteger_ReturnsTheNumberItself(int value)
+        {
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value));
+        }
+
+        [TestCase(3)]
+        [TestCase(30)]
+        [TestCase(300)]
+        [TestCase(0)]
+        public void FromNegativeNumbers_PassingNonNegativeIntegerAndParameterName_ReturnsTheNumberItself(int value)
+        {
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value, "points"));
+        }
+
+        [TestCase(-3)]
+        [TestCase(-30)]
+        [TestCase(-300)]
+        [TestCase(-1)]
+        public void FromNegativeNumbers(int value)
+        {
+            TestDelegate t = () => Shield.FromNegativeNumber(value);
+            Assert.Throws<ArgumentOutOfRangeException>(t);
+        }
+
+        [TestCase(-3)]
+        [TestCase(-30)]
+        [TestCase(-300)]
+        [TestCase(-1)]
+        public void FromNegativeNumbersWithParameterName(int value)
+        {
+            TestDelegate t = () => Shield.FromNegativeNumber(value, "points");
+            Assert.Throws<ArgumentOutOfRangeException>(t);
+        }
+
+        [TestCase(3.5d)]
+        [TestCase(30)]
+        [TestCase(300.0002d)]
+        [TestCase(0)]
+        public void FromNegativeNumbers_PassingNonNegativeDouble_ReturnsTheNumberItself(double value)
+        {
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value));
+        }
+
+        [TestCase(3.234d)]
+        [TestCase(12312.21d)]
+        [TestCase(300d)]
+        [TestCase(0d)]
+        public void FromNegativeNumbers_PassingNonNegativeDoubleAndParameterName_ReturnsTheNumberItself(double value)
+        {
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value, "points"));
+        }
+
+        [TestCase(-3d)]
+        [TestCase(-30d)]
+        [TestCase(-300d)]
+        [TestCase(-0.0001d)]
+        public void FromNegativeNumbers(double value)
+        {
+            TestDelegate t = () => Shield.FromNegativeNumber(value);
+            Assert.Throws<ArgumentOutOfRangeException>(t);
+        }
+
+        [TestCase(-3d)]
+        [TestCase(-30d)]
+        [TestCase(-300d)]
+        [TestCase(-1d)]
+        public void FromNegativeNumbersWithParameterName(double value)
+        {
+            TestDelegate t = () => Shield.FromNegativeNumber(value, "points");
+            Assert.Throws<ArgumentOutOfRangeException>(t);
+        }
+
+        [TestCase(3.5f)]
+        [TestCase(30f)]
+        [TestCase(300.0002f)]
+        [TestCase(0f)]
+        public void FromNegativeNumbers_PassingNonNegativeFloat_ReturnsTheNumberItself(float value)
+        {
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value));
+        }
+
+        [TestCase(3.234f)]
+        [TestCase(12312.21f)]
+        [TestCase(300f)]
+        [TestCase(0f)]
+        public void FromNegativeNumbers_PassingNonNegativeFloatAndParameterName_ReturnsTheNumberItself(float value)
+        {
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value, "points"));
+        }
+
+        [TestCase(-3f)]
+        [TestCase(-30f)]
+        [TestCase(-300f)]
+        [TestCase(-0.0001f)]
+        public void FromNegativeNumbers(float value)
+        {
+            TestDelegate t = () => Shield.FromNegativeNumber(value);
+            Assert.Throws<ArgumentOutOfRangeException>(t);
+        }
+
+        [TestCase(-3f)]
+        [TestCase(-30f)]
+        [TestCase(-300f)]
+        [TestCase(-1f)]
+        public void FromNegativeNumbersWithParameterName(float value)
+        {
+            TestDelegate t = () => Shield.FromNegativeNumber(value, "points");
+            Assert.Throws<ArgumentOutOfRangeException>(t);
+        }
+
+        [Test]
+        public void FromNegativeNumbers_PassingNonNegativeDecimal_ReturnsTheNumberItself()
+        {
+            decimal value = 123.456m;
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value));
+        }
+
+        [Test]
+        public void FromNegativeNumbers_PassingNonNegativeDecimalAndParameterName_ReturnsTheNumberItself()
+        {
+            decimal value = 50m;
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value, "points"));
+        }
+
+        [Test]
+        public void FromNegativeNumbers()
+        {
+            TestDelegate t = () => Shield.FromNegativeNumber(-5.421m);
+            Assert.Throws<ArgumentOutOfRangeException>(t);
+        }
+
+        [Test]
+        public void FromNegativeNumbersWithParameterName()
+        {
+            TestDelegate t = () => Shield.FromNegativeNumber(-5m, "points");
+            Assert.Throws<ArgumentOutOfRangeException>(t);
+        }
     }
 }

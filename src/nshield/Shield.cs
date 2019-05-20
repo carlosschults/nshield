@@ -90,7 +90,7 @@ namespace carlosschults.NShield
         /// <paramref name="value"/>, if it's not <c>null</c>.
         /// </returns>
         public static T FromNull<T>(T value, string paramName = null)
-            where T:class
+            where T : class
         {
             if (value == null)
                 throw new ArgumentNullException(paramName);
@@ -138,6 +138,44 @@ namespace carlosschults.NShield
             string parameterName = null)
         {
             FromEmptySequence(FromNull(value, parameterName));
+            return value;
+        }
+
+        public static int FromNegativeNumber(int value, string parameterName = null)
+        {
+            if (value < 0)
+                throw new ArgumentOutOfRangeException(parameterName);
+
+            return value;
+        }
+
+        public static double FromNegativeNumber(
+            double value,
+            string parameterName = null)
+        {
+            if (value < 0.0)
+                throw new ArgumentOutOfRangeException(parameterName);
+
+            return value;
+        }
+
+        public static float FromNegativeNumber(
+            float value,
+            string parameterName = null)
+        {
+            if (value < 0.0f)
+                throw new ArgumentOutOfRangeException(parameterName);
+
+            return value;
+        }
+
+        public static decimal FromNegativeNumber(
+            decimal value,
+            string parameterName = null)
+        {
+            if (value < 0.0m)
+                throw new ArgumentOutOfRangeException(parameterName);
+
             return value;
         }
     }
