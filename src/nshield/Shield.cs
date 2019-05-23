@@ -178,5 +178,16 @@ namespace carlosschults.NShield
 
             return value;
         }
+
+        public static long FromNegativeNumber(
+            long value,
+            string parameterName = null
+            )
+        {
+            if (value < 0)
+                throw new ArgumentOutOfRangeException(parameterName);
+
+            return value;
+        }
     }
 }

@@ -445,5 +445,38 @@ namespace NShield.Tests
             TestDelegate t = () => Shield.FromNegativeNumber(-5m, "points");
             Assert.Throws<ArgumentOutOfRangeException>(t);
         }
+
+        [Test]
+        public void FromNegativeNumbers_PassingNonNegative64BitInteger_ReturnsTheNumberItself()
+        {
+            long value = 123;
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value));
+        }
+
+        [Test]
+        public void FromNegativeNumbers_PassingNonNegative64BitIntegerAndParameterName_ReturnsTheNumberItself()
+        {
+            long value = 123;
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value, "points"));
+        }
+
+        [TestCase(-5)]
+        [TestCase(-7)]
+        [TestCase(-9)]
+        [TestCase(-8)]
+        public void FromNegativeNumbers(long value)
+        {
+            TestDelegate t = () => Shield.FromNegativeNumber(value);
+            Assert.Throws<ArgumentOutOfRangeException>(t);
+        }
+
+        [TestCase(-5)]
+        [TestCase(-3)]
+        [TestCase(-4)]
+        public void FromNegativeNumbersWithParameterName(long value)
+        {
+            TestDelegate t = () => Shield.FromNegativeNumber(value, "points");
+            Assert.Throws<ArgumentOutOfRangeException>(t);
+        }
     }
 }
