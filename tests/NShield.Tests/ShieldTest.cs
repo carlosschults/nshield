@@ -478,5 +478,40 @@ namespace NShield.Tests
             TestDelegate t = () => Shield.FromNegativeNumber(value, "points");
             Assert.Throws<ArgumentOutOfRangeException>(t);
         }
+
+        [TestCase(10)]
+        [TestCase(12)]
+        [TestCase(15)]
+        public void FromNegativeNumbers_PassingNonNegative16BitInteger_ReturnsTheNumberItself(short value)
+        {
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value));
+        }
+
+        [TestCase(10)]
+        [TestCase(12)]
+        [TestCase(15)]
+        public void FromNegativeNumbers_PassingNonNegative16BitIntegerAndParameterName_ReturnsTheNumberItself(short value)
+        {
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value, "points"));
+        }
+
+        [TestCase(-5)]
+        [TestCase(-7)]
+        [TestCase(-9)]
+        [TestCase(-8)]
+        public void FromNegativeNumbers(short value)
+        {
+            TestDelegate t = () => Shield.FromNegativeNumber(value);
+            Assert.Throws<ArgumentOutOfRangeException>(t);
+        }
+
+        [TestCase(-5)]
+        [TestCase(-3)]
+        [TestCase(-4)]
+        public void FromNegativeNumbersWithParameterName(short value)
+        {
+            TestDelegate t = () => Shield.FromNegativeNumber(value, "points");
+            Assert.Throws<ArgumentOutOfRangeException>(t);
+        }
     }
 }
