@@ -141,6 +141,15 @@ namespace carlosschults.NShield
             return value;
         }
 
+        /// <summary>
+        /// Checks whether the specified number is negative, throwing
+        /// if it is, and returning the same number if it's not.
+        /// </summary>
+        /// <param name="value">The 32-bit integer to check.</param>
+        /// <param name="parameterName">
+        /// The name of the parameter to include when throwing.
+        /// </param>
+        /// <returns>The specified number.</returns>
         public static int FromNegativeNumber(int value, string parameterName = null)
         {
             if (value < 0)
@@ -149,6 +158,15 @@ namespace carlosschults.NShield
             return value;
         }
 
+        /// <summary>
+        /// Checks whether the specified number is negative, throwing
+        /// if it is, and returning the same number if it's not.
+        /// </summary>
+        /// <param name="value">The <see cref="double"/> value to check.</param>
+        /// <param name="parameterName">
+        /// The name of the parameter to include when throwing.
+        /// </param>
+        /// <returns>The specified number.</returns>
         public static double FromNegativeNumber(
             double value,
             string parameterName = null)
@@ -159,6 +177,15 @@ namespace carlosschults.NShield
             return value;
         }
 
+        /// <summary>
+        /// Checks whether the specified number is negative, throwing
+        /// if it is, and returning the same number if it's not.
+        /// </summary>
+        /// <param name="value">The <see cref="float"/> value to check.</param>
+        /// <param name="parameterName">
+        /// The name of the parameter to include when throwing.
+        /// </param>
+        /// <returns>The specified number.</returns>
         public static float FromNegativeNumber(
             float value,
             string parameterName = null)
@@ -169,6 +196,15 @@ namespace carlosschults.NShield
             return value;
         }
 
+        /// <summary>
+        /// Checks whether the specified number is negative, throwing
+        /// if it is, and returning the same number if it's not.
+        /// </summary>
+        /// <param name="value">The <see cref="decimal"/> value to check.</param>
+        /// <param name="parameterName">
+        /// The name of the parameter to include when throwing.
+        /// </param>
+        /// <returns>The specified number.</returns>
         public static decimal FromNegativeNumber(
             decimal value,
             string parameterName = null)
@@ -179,6 +215,15 @@ namespace carlosschults.NShield
             return value;
         }
 
+        /// <summary>
+        /// Checks whether the specified number is negative, throwing
+        /// if it is, and returning the same number if it's not.
+        /// </summary>
+        /// <param name="value">The <see cref="long"/> value to check.</param>
+        /// <param name="parameterName">
+        /// The name of the parameter to include when throwing.
+        /// </param>
+        /// <returns>The specified number.</returns>
         public static long FromNegativeNumber(
             long value,
             string parameterName = null
