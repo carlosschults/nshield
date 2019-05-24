@@ -426,9 +426,23 @@ namespace NShield.Tests
         }
 
         [Test]
+        public void FromNegativeNumbers_PassingZeroAsDecimal_ReturnsTheNumberItself()
+        {
+            decimal value = 0;
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value));
+        }
+
+        [Test]
         public void FromNegativeNumbers_PassingNonNegativeDecimalAndParameterName_ReturnsTheNumberItself()
         {
             decimal value = 50m;
+            Assert.AreEqual(value, Shield.FromNegativeNumber(value, "points"));
+        }
+
+        [Test]
+        public void FromNegativeNumbers_PassingZeroAsDecimalAndParameterName_ReturnsTheNumberItself()
+        {
+            decimal value = 0m;
             Assert.AreEqual(value, Shield.FromNegativeNumber(value, "points"));
         }
 
@@ -446,10 +460,12 @@ namespace NShield.Tests
             Assert.Throws<ArgumentOutOfRangeException>(t);
         }
 
-        [Test]
-        public void FromNegativeNumbers_PassingNonNegative64BitInteger_ReturnsTheNumberItself()
+        [TestCase(0)]
+        [TestCase(5)]
+        [TestCase(123)]
+        [TestCase(90)]
+        public void FromNegativeNumbers_PassingNonNegative64BitInteger_ReturnsTheNumberItself(long value)
         {
-            long value = 123;
             Assert.AreEqual(value, Shield.FromNegativeNumber(value));
         }
 
